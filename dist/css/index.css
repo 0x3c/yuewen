@@ -11,3 +11,16 @@
 #content {
   position: relative;
 }
+#copyright {
+  height: 614px;
+  box-sizing: border-box;
+  position: relative;
+  margin-top: 96px;
+}
+#part2,
+#part3,
+#part4,
+#part5,
+#part6 {
+  height: 700px;
+}
