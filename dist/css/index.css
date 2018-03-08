@@ -1,16 +1,13 @@
 #header {
   height: 74px;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background-color:#fff; 
-  box-shadow: 0 1px 5px rgba(0,0,0,.2);
-  color: #202425;
+  color: #fff;
+  transition: all 600ms;
+  position: absolute;
 }
 #content {
   position: relative;
-  height: 100%;
-  overflow-y: scroll;
 }
