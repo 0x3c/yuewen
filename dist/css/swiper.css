@@ -74,7 +74,7 @@
 }
 .item1 {
   background-image: url(https://qidian.gtimg.com/yuewen/v1/css/images/yw-hd-ip.jpg);
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 }
 .item2 {
   background-image: url(https://qidian.gtimg.com/yuewen/v1/css/images/yw-hd-ft.png);

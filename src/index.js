@@ -10,5 +10,4 @@ window.onload = function() {
   headerInit();
 
   initBookEvent();
-  //   swiper.jump(1);
 };
