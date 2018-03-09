@@ -1,11 +1,12 @@
 // jump somewhere(animation)
 function jumpEle(element) {
+  const headerHeight=document.getElementById('header').offsetHeight;
   const fps = 50;
   const timout = 400;
   const aim = document.getElementById(element);
-  const dist = aim.offsetTop - window.pageYOffset; // scroll down
-  console.log("now: " + " " + window.pageYOffset);
-  console.log("aim: " + " " + aim.offsetTop);
+  const dist = aim.offsetTop - window.pageYOffset-headerHeight // scroll down
+  // console.log("now: " + " " + window.pageYOffset);
+  // console.log("aim: " + " " + aim.offsetTop);
   let count = fps * timout / 1000.0;
   const perDist = dist / count;
   let timer = setInterval(() => {
@@ -31,11 +32,12 @@ function initHeaderEvent() {
   const linkList = Array.from(document.getElementsByClassName("header-nav-a"));
   //   jump to some part of this page;
   linkList.forEach(function(item, index) {
-    item.onclick = function() {
-      let str = event.currentTarget.href;
+    item.onclick = function(e) {
+      let str = e.currentTarget.href;
       str = str.substr(str.indexOf("#") + 1);
       jumpEle(str);
-      event.preventDefault();
+      e.preventDefault();
+      e.stopPropagation();
     };
   });
   language.onmouseenter = function() {

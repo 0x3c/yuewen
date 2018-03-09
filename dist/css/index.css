@@ -17,8 +17,17 @@
   position: relative;
   margin-top: 96px;
 }
-#part2,
-#part3,
+#mobile {
+  margin-top: 200px;
+}
+#brand {
+  position: relative;
+  margin-top: -225px;
+  height: 610px;
+  padding-top: 30px;
+  background: #212737;
+  color: #fff;
+}
 #part4,
 #part5,
 #part6 {

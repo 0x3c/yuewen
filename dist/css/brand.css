@@ -1,0 +1,104 @@
+.brand-box {
+  width: 1220px;
+  margin: 0 auto;
+}
+.brand-tit {
+  margin: 50px 0 40px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 400;
+}
+.bd-item {
+  opacity: 0.3;
+  color: #fff;
+  width: 138px;
+  height: 58px;
+  display: inline-block;
+  margin: 0 25px 17px;
+  vertical-align: top;
+  cursor: pointer;
+  vertical-align: top;
+  transition: all 0.4s;
+  position: relative;
+}
+.bd-item:hover {
+  opacity: 1;
+}
+.bd-item-icon {
+  display: inline-block;
+  position: absolute;
+  width: 200px;
+  height: 80px;
+  background-image: url(https://qidian.gtimg.com/yuewen/v1/css/images/brand/icons-brand2.png);
+  background-repeat: no-repeat;
+  margin: -25px 0 0 -73px;
+  transform: scale(0.6);
+  clip: rect(0 200px 100px 52px);
+}
+.icon-chuangshi {
+  background-position: 0 0px;
+}
+.icon-hongxiu {
+  background-position: 0 -80px;
+}
+.icon-huawen {
+  background-position: 0 -160px;
+}
+.icon-jushi {
+  background-position: 0 -240px;
+}
+.icon-lanren {
+  background-position: 0 -320px;
+}
+.icon-qidiangirl {
+  background-position: 0 -480px;
+}
+.icon-qidian {
+  background-position: 0 -560px;
+}
+.icon-qidianread {
+  background-position: 0 -640px;
+}
+.icon-qq {
+  background-position: 0 -720px;
+}
+.icon-rongshu {
+  background-position: 0 -800px;
+}
+.icon-tianfang {
+  background-position: 0 -880px;
+}
+.icon-xiaoxiang {
+  background-position: 0 -960px;
+}
+.icon-xiaoshuo {
+  background-position: 0 -1040px;
+}
+.icon-yanqing {
+  background-position: 0 -1120px;
+}
+.icon-yuedu {
+  background-position: 0 -1200px;
+}
+.icon-yunqi {
+  background-position: 0 -1280px;
+}
+.icon-zhongzhi {
+  background-position: 0 -1360px;
+}
+.icon-wirter {
+  background-position: 0 -1440px;
+}
+
+.brand-desc {
+  width: 680px;
+  margin: 40px auto 0;
+}
+.brand-desc-li {
+}
+.brand-desc-text {
+  line-height: 32px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 200;
+}

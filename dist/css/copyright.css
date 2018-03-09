@@ -47,12 +47,56 @@
   width: 100%;
   height: 525px;
   position: relative;
+  overflow-x: hidden;
+  margin-top: -245px;
 }
 .booklist-pic {
   width: 198px;
   height: 262px;
   position: absolute;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-  left:calc(50% - 98px);
+  left: calc(50% - 98px);
+  bottom: 0;
   border-radius: 4px;
+  transition: 0.8s ease-in-out;
+  transform-origin: center 100%;
+}
+
+.book-one,
+.book-two {
+  position: absolute;
+  height: 140px;
+  width: 100%;
+}
+.book-one::before {
+  content: "213124";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  z-index: 2;
+  opacity: 0.6;
+}
+.book-two::before {
+  content: "213124";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  z-index: 2;
+  opacity: 0.6;
+}
+.book-one {
+  top: 420px;
+  background: url(https://qidian.gtimg.com/yuewen/v1/css/images/ip2/book/book-line1.jpg)
+    repeat-x;
+}
+.book-two {
+  top: 560px;
+  background: url(https://qidian.gtimg.com/yuewen/v1/css/images/ip2/book/book-line2.jpg)
+    repeat-x;
 }

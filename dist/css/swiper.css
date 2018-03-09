@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "SHSSB5";
+  src: url("../assets/SHSSB5.woff");
+}
+
 #swiper {
   height: 640px;
   position: relative;
@@ -5,30 +10,33 @@
 }
 .swiper-warpper {
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
   background: #fff;
   position: relative;
 }
 .swiper-view {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   /* overflow: hidden; */
 }
 .swiper-warpper > li {
   position: absolute;
   height: 100%;
-  /* display: inline-block; */
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
   background-position: center;
-  float: left;
-  display: flex;
+  background-size: cover;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 /* 文字信息 */
 .swiper-warpper .center {
+  left: 50%;
+  transform: translateX(-50%);
   position: absolute;
-  top: 230px;
+  top: 232px;
 }
 .swiper-warpper .center-text {
   margin-bottom: 20px;
@@ -36,18 +44,20 @@
   font-weight: 400;
   text-align: center;
   z-index: 2;
+  margin-bottom: 20px;
+  font-family: "SHSSB5";
 }
-.swiper-warpper li::after {
+/* .swiper-warpper li::after {
   display: block;
   content: "";
   visibility: hidden;
   clear: both;
-}
+} */
 .swiper-warpper .center-p {
   text-align: center;
   line-height: 1.4;
   font-size: 28px;
-  font-weight: 300;
+  font-weight: 200;
   padding-bottom: 60px;
 }
 .swiper-warpper a {
