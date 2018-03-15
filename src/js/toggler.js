@@ -93,7 +93,7 @@ Toggler.prototype.jump = function(index) {
   });
   this.navigationLists[index].className = "active";
 
-  console.log(this.warpper.style.left);
+  // console.log(this.warpper.style.left);
 };
 
 // 定时器自动播放

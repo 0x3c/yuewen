@@ -1,10 +1,10 @@
 // jump somewhere(animation)
 function jumpEle(element) {
-  const headerHeight=document.getElementById('header').offsetHeight;
+  const headerHeight = document.getElementById("header").offsetHeight;
   const fps = 50;
   const timout = 400;
   const aim = document.getElementById(element);
-  const dist = aim.offsetTop - window.pageYOffset-headerHeight // scroll down
+  const dist = aim.offsetTop - window.pageYOffset - headerHeight; // scroll down
   // console.log("now: " + " " + window.pageYOffset);
   // console.log("aim: " + " " + aim.offsetTop);
   let count = fps * timout / 1000.0;
@@ -18,10 +18,7 @@ function jumpEle(element) {
   }, 1000 / fps);
 }
 
- 
-function setNavClass() {
-    
-}
+function setNavClass() {}
 
 // initialize event of header's elements
 function initHeaderEvent() {
@@ -87,7 +84,46 @@ function headerCfg() {
   return setHeader;
 }
 
+function headerEvent() {
+  // init range
+  const navRange = [];
+  const headerHeight = document.getElementById("header").offsetHeight;
+  const idArr = ["copyright", "mobile", "brand", "part4", "part5", "part6"];
+  const navEleArr = Array.from(
+    document.getElementsByClassName("header-nav")[0].children
+  );
+  console.log(navEleArr);
+  idArr.forEach((key, index) => {
+    const item = document.getElementById(key);
+    const fromY = item.offsetTop - headerHeight;
+    const endY = item.offsetHeight + fromY;
+    navRange.push([fromY, endY]);
+  });
+  console.log(navRange);
+  const inArrRange = (arr, num) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (num >= arr[i][0] && num <= arr[i][1]) {
+        return i;
+      }
+    }
+  };
+
+  return () => {
+    const currentY = window.scrollY;
+    const id = inArrRange(navRange, currentY);
+    navEleArr.forEach((item, index) => {
+      if (index === id) {
+        console.log("找到id");
+        item.className = "header-nav-a nav-a-active";
+      } else {
+        item.className = "header-nav-a ";
+      }
+    });
+    // 设置 active  nav-a-active
+  };
+}
 export default function headerInit() {
   initHeaderEvent();
   window.addEventListener("scroll", headerCfg(), false);
+  window.addEventListener("scroll", headerEvent(), false);
 }
