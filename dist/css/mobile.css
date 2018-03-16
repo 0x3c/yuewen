@@ -7,7 +7,8 @@
 }
 .mb-list {
   width: 525px;
-  margin: 38px auto 35px;
+  /* margin: 38px auto 35px; */
+  margin: 0 auto 35px;
   text-align: justify;
   line-height: 0;
   position: relative;

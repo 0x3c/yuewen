@@ -1,18 +1,16 @@
 // jump somewhere(animation)
-function jumpEle(element) {
-  const headerHeight = document.getElementById("header").offsetHeight;
-  const fps = 50;
+function jumpEle(aimY) {
+  const fps = 60;
   const timout = 400;
-  const aim = document.getElementById(element);
-  const dist = aim.offsetTop - window.pageYOffset - headerHeight; // scroll down
-  // console.log("now: " + " " + window.pageYOffset);
-  // console.log("aim: " + " " + aim.offsetTop);
+  const dist = aimY - window.pageYOffset; // scroll down dist
   let count = fps * timout / 1000.0;
   const perDist = dist / count;
   let timer = setInterval(() => {
-    // console.log(window.pageYOffset);
-    window.scrollTo(0, window.pageYOffset + perDist);
-    if (!--count) {
+    window.scrollBy(0, perDist);
+    console.log(perDist);
+    count -= 1;
+    if (count === 0) {
+      // window.scroll(0, aimY);
       clearInterval(timer);
     }
   }, 1000 / fps);
@@ -28,7 +26,7 @@ function initHeaderEvent() {
   //   const linkNodeList=document.getElementsByClassName('header-nav-a');
   const linkList = Array.from(document.getElementsByClassName("header-nav-a"));
   //   jump to some part of this page;
-  linkList.forEach(function(item, index) {
+  /*   linkList.forEach(function(item, index) {
     item.onclick = function(e) {
       let str = e.currentTarget.href;
       str = str.substr(str.indexOf("#") + 1);
@@ -36,7 +34,7 @@ function initHeaderEvent() {
       e.preventDefault();
       e.stopPropagation();
     };
-  });
+  }); */
   language.onmouseenter = function() {
     languageList.style.display = "block";
     drop.className = "nav-lg-drop nav-lg-dropup";
@@ -86,13 +84,12 @@ function headerCfg() {
 
 function headerEvent() {
   // init range
-  const navRange = [];
-  const headerHeight = document.getElementById("header").offsetHeight;
-  const idArr = ["copyright", "mobile", "brand", "part4", "part5", "part6"];
+  const navRange = []; // 保存每一块的区间
+  const headerHeight = document.getElementById("header").offsetHeight; // header高度
+  const idArr = ["copyright", "mobile", "brand", "part4", "part5", "part6"]; // 每一块的id
   const navEleArr = Array.from(
     document.getElementsByClassName("header-nav")[0].children
   );
-  console.log(navEleArr);
   idArr.forEach((key, index) => {
     const item = document.getElementById(key);
     const fromY = item.offsetTop - headerHeight;
@@ -100,26 +97,35 @@ function headerEvent() {
     navRange.push([fromY, endY]);
   });
   console.log(navRange);
+  // 返回num所在的范围的数组index
   const inArrRange = (arr, num) => {
     for (let i = 0; i < arr.length; i++) {
-      if (num >= arr[i][0] && num <= arr[i][1]) {
+      if (num >= arr[i][0] && num < arr[i][1]) {
         return i;
       }
     }
   };
 
+  // 初始化Nav点击跳转事件
+  navEleArr.forEach((item, idx) => {
+    item.onclick = () => {
+      jumpEle(navRange[idx][0]);
+      event.preventDefault();
+    };
+  });
+
+  // 以当前滚动条位置设置Nav样式
   return () => {
-    const currentY = window.scrollY;
+    const currentY = window.pageYOffset;
     const id = inArrRange(navRange, currentY);
     navEleArr.forEach((item, index) => {
       if (index === id) {
-        console.log("找到id");
+        // console.log("找到id");
         item.className = "header-nav-a nav-a-active";
       } else {
         item.className = "header-nav-a ";
       }
     });
-    // 设置 active  nav-a-active
   };
 }
 export default function headerInit() {

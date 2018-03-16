@@ -12,17 +12,19 @@
   position: relative;
 }
 #copyright {
+  /* height: 652px; */
   min-height: 614px;
+  overflow: hidden;
   box-sizing: border-box;
   position: relative;
   margin-top: 96px;
 }
 #mobile {
-  /* margin-top: 200px; */
+  height: 624px;
+  padding-top: 38px;
 }
 #brand {
   position: relative;
-  margin-top: -225px;
   height: 610px;
   padding-top: 30px;
   background: #212737;
